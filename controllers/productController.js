@@ -12,7 +12,7 @@ exports.createProducts = (req, res) => {
   const {id, fullname, course, yearlevel, email, dateenrolled} = req.body;
   connection.query(
     "INSERT INTO students (id, fullname, course, yearlevel, email, dateenrolled) VALUES (?, ?, ?, ?, ?, ?)",
-    [itemName, unitPrice, quantity, supplier],
+    [id, fullname, course, yearlevel, email, dateenrolled],
     (err, result) => {
       if (err) throw err;
       res.json({
@@ -22,6 +22,7 @@ exports.createProducts = (req, res) => {
     },
   );
 };
+
 
 
 
