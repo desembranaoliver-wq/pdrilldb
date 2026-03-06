@@ -16,12 +16,13 @@ exports.createProducts = (req, res) => {
     (err, result) => {
       if (err) throw err;
       res.json({
-        message: "User created successfully",
+        message: "Student created successfully",
         id: result.insertId,
       });
     },
   );
 };
+
 
 
 
