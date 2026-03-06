@@ -9,7 +9,7 @@ exports.getAllGadgets = (req, res) => {
 };
 
 exports.createProducts = (req, res) => {
-  const {itemName, unitPrice, quantity, supplier } = req.body;
+  const {id, fullname, course, yearlevel, email, dateenrolled} = req.body;
   connection.query(
     "INSERT INTO students (id, fullname, course, yearlevel, email, dateenrolled) VALUES (?, ?, ?, ?, ?, ?)",
     [itemName, unitPrice, quantity, supplier],
@@ -22,6 +22,7 @@ exports.createProducts = (req, res) => {
     },
   );
 };
+
 
 
 
