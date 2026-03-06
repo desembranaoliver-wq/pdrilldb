@@ -2,7 +2,7 @@
 const connection = require("../config/db");
 //get all products
 exports.getAllGadgets = (req, res) => {
-  connection.query("SELECT * FROM product_info", (err, rows, fields) => {
+  connection.query("SELECT * FROM students", (err, rows, fields) => {
     if (err) throw err;
     res.json(rows);
   });
@@ -11,7 +11,7 @@ exports.getAllGadgets = (req, res) => {
 exports.createProducts = (req, res) => {
   const {itemName, unitPrice, quantity, supplier } = req.body;
   connection.query(
-    "INSERT INTO product_info (itemName, unitPrice, quantity, supplier) VALUES (?, ?, ?, ?)",
+    "INSERT INTO students (id, fullname, course, yearlevel, email, dateenrolled) VALUES (?, ?, ?, ?, ?, ?)",
     [itemName, unitPrice, quantity, supplier],
     (err, result) => {
       if (err) throw err;
@@ -22,6 +22,7 @@ exports.createProducts = (req, res) => {
     },
   );
 };
+
 
 
 
