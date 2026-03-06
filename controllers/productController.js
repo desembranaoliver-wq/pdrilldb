@@ -9,10 +9,10 @@ exports.getAllGadgets = (req, res) => {
 };
 
 exports.createProducts = (req, res) => {
-  const {id, fullname, course, yearlevel, email, dateenrolled} = req.body;
+  const {fullname, course, yearlevel, email, dateenrolled} = req.body;
   connection.query(
-    "INSERT INTO students (id, fullname, course, yearlevel, email, dateenrolled) VALUES (?, ?, ?, ?, ?, ?)",
-    [id, fullname, course, yearlevel, email, dateenrolled],
+    "INSERT INTO students (fullname, course, yearlevel, email, dateenrolled) VALUES (?, ?, ?, ?, ?, ?)",
+    [fullname, course, yearlevel, email, dateenrolled],
     (err, result) => {
       if (err) throw err;
       res.json({
@@ -22,6 +22,7 @@ exports.createProducts = (req, res) => {
     },
   );
 };
+
 
 
 
